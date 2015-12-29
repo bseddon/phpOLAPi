@@ -1,0 +1,23 @@
+{
+    "name": "instaclick/phpolap",
+    "description": "phpOlap is a php API for OLAP (XMLA)",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Julien Jacottet",
+            "email": "jjacottet@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/class-loader": "~2.2"
+    },
+    "require-dev": {
+        "phpunit/PHPUnit": "3.7.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "phpOlap": "src"
+        }
+    }
+}
