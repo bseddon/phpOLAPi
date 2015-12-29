@@ -103,7 +103,7 @@ class Query
 		}
 
 		if (count($this->rowElements) == 0) {
-			throw new QueryException('Axis "ROW" can\'t be empty');
+			//throw new QueryException('Axis "ROW" can\'t be empty');
 		}
 		
 		$nonEmpty = $this->nonEmpty ? 'NON EMPTY ' : '';
@@ -111,10 +111,11 @@ class Query
 		$mdx = "SELECT " .
 				$nonEmpty .
 				$this->getMdxPart($this->colElements) .
-				" ON COLUMNS, " .
-				$nonEmpty .
+				" ON 0 " .
+				($this->getMdxPart($this->rowElements)?
+				', '.$nonEmpty .
 				$this->getMdxPart($this->rowElements) .
-				" ON ROWS" .
+				" ON 1" :'').
 				" FROM " .
 				$this->cubeName;
 
@@ -222,3 +223,4 @@ class Query
 	}
 	
 }
+
