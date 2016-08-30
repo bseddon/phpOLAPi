@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "symfony/class-loader": "~2.2"
+        "symfony/class-loader": "~2.1"
     },
     "require-dev": {
         "phpunit/PHPUnit": "3.7.*"
