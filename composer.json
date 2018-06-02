@@ -1,5 +1,5 @@
 {
-    "name": "kabachello/phpolapx",
+    "name": "kabachello/phpolapi",
     "description": "A PHP API for XMLA to connect to OLAP databases",
     "license": "MIT",
     "authors": [
