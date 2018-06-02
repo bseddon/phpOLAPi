@@ -1,12 +1,15 @@
 {
-    "name": "kabachello/phpolap",
-    "description": "phpOlap is a php API for OLAP (XMLA)",
+    "name": "kabachello/phpolapx",
+    "description": "A PHP API for XMLA to connect to OLAP databases",
     "license": "MIT",
-    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Julien Jacottet",
             "email": "jjacottet@gmail.com"
+        },
+        {
+            "name": "Andrej Kabachnik",
+            "email": "kabachnik@hotmail.com"
         }
     ],
     "require-dev": {
