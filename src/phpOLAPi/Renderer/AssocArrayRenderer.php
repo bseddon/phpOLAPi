@@ -4,8 +4,8 @@ namespace phpOLAPi\Renderer;
 use phpOLAPi\Metadata\ResultSetInterface;
 
 /**
- * 
- * 
+ *
+ *
  * @author kabachello
  *
  */
@@ -17,7 +17,7 @@ class AssocArrayRenderer implements RendererInterface
     {
         $this->resultSet = $resultSet;
     }
-
+    
     public function generate()
     {
         $table = [];
@@ -35,7 +35,7 @@ class AssocArrayRenderer implements RendererInterface
         $keys = array_values($rowAxisCols);
         foreach ($resultSet->getColAxisSet() as $colAxis) {
             foreach ($colAxis as $axis) {
-                $keys[] = $axis->getMemberCaption();
+                $keys[] = $axis->getMemberUniqueName();
             }
         }
         
