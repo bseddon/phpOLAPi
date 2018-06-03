@@ -9,18 +9,18 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Layout;
+namespace phpOLAPi\Renderer;
 
-use phpOlap\Metadata\ResultSetInterface;
+use phpOLAPi\Metadata\ResultSetInterface;
 
 /**
-*	Layout Interface
+*	Renderer Interface
 *
 *  	@author Julien Jacottet <jjacottet@gmail.com>
-*	@package Layout
+*	@package Renderer
 */
 
-interface LayoutInterface {
+interface RendererInterface {
 	
     /**
      * Constructor.
@@ -34,7 +34,7 @@ interface LayoutInterface {
     /**
      * generate the layout
      *
-     * @return String Layout
+     * @return String
      *
      */
 	public function generate();

@@ -9,9 +9,9 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Xmla\Metadata;
+namespace phpOLAPi\Xmla\Metadata;
 
-use phpOlap\Xmla\Metadata\MetadataException;
+use phpOLAPi\Xmla\Metadata\MetadataException;
 
 /**
 *	metadata base class

@@ -9,11 +9,11 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Xmla\Connection;
+namespace phpOLAPi\Xmla\Connection;
 
-use phpOlap\Xmla\Metadata\Database;
-use phpOlap\Xmla\Metadata\Catalog;
-use phpOlap\Xmla\Metadata\Schema;
+use phpOLAPi\Xmla\Metadata\Database;
+use phpOLAPi\Xmla\Metadata\Catalog;
+use phpOLAPi\Xmla\Metadata\Schema;
 
 /**
 *	Connection Interface

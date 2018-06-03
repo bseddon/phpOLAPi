@@ -9,10 +9,10 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Tests\Xmla\Metadata;
+namespace phpOLAPi\Tests\Xmla\Metadata;
 
-use phpOlap\Xmla\Metadata\ResultSet;
-use phpOlap\Xmla\Metadata\MetadataException;
+use phpOLAPi\Xmla\Metadata\ResultSet;
+use phpOLAPi\Xmla\Metadata\MetadataException;
 
 class ResultSetTest extends \PHPUnit_Framework_TestCase
 {

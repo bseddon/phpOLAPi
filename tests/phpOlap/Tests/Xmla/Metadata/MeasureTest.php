@@ -9,9 +9,9 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Tests\Xmla\Metadata;
+namespace phpOLAPi\Tests\Xmla\Metadata;
 
-use phpOlap\Xmla\Metadata\Measure;
+use phpOLAPi\Xmla\Metadata\Measure;
 
 class MeasureTest extends \PHPUnit_Framework_TestCase
 {
@@ -38,7 +38,7 @@ class MeasureTest extends \PHPUnit_Framework_TestCase
 		
 		$node = $document->getElementsByTagName('row')->item(0);
 		
-		$connection = $this->getMock('phpOlap\Xmla\Connection\Connection', array(), array(), '', FALSE);
+		$connection = $this->getMock('phpOLAPi\Xmla\Connection\Connection', array(), array(), '', FALSE);
 		
 		$measure = new Measure();
 		
@@ -71,7 +71,7 @@ class MeasureTest extends \PHPUnit_Framework_TestCase
 		
 		$node = $document->getElementsByTagName('row')->item(0);
 		
-		$connection = $this->getMock('phpOlap\Xmla\Connection\Connection', array(), array(), '', FALSE);
+		$connection = $this->getMock('phpOLAPi\Xmla\Connection\Connection', array(), array(), '', FALSE);
 		
 		$measure = new Measure();
 		
@@ -109,7 +109,7 @@ class MeasureTest extends \PHPUnit_Framework_TestCase
 		
 		$node = $document->getElementsByTagName('row')->item(0);
 		
-		$connection = $this->getMock('phpOlap\Xmla\Connection\Connection', array(), array(), '', FALSE);
+		$connection = $this->getMock('phpOLAPi\Xmla\Connection\Connection', array(), array(), '', FALSE);
 		
 		$measure = new Measure();
 		

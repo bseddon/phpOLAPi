@@ -9,20 +9,20 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Layout\Table;
+namespace phpOLAPi\Renderer\Table;
 
-use phpOlap\Metadata\ResultSetInterface;
-use phpOlap\Metadata\CellAxisInterface;
-use phpOlap\Metadata\CellDataInterface;
-use phpOlap\Layout\LayoutInterface;
+use phpOLAPi\Metadata\ResultSetInterface;
+use phpOLAPi\Metadata\CellAxisInterface;
+use phpOLAPi\Metadata\CellDataInterface;
+use phpOLAPi\Renderer\RendererInterface;
 
 
 /**
 *  	@author Julien Jacottet <jjacottet@gmail.com>
-*	@package Layout
+*	@package Renderer
 *	@subpackage Table
 */
-abstract class TableLayoutAbstract implements LayoutInterface
+abstract class AbstractTableRenderer implements RendererInterface
 {
 	
 	protected $resultSet;
@@ -43,7 +43,7 @@ abstract class TableLayoutAbstract implements LayoutInterface
     /**
      * generate the layout
      *
-     * @return String Layout
+     * @return String
      *
      */
 	public function generate()

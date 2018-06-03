@@ -1,15 +1,13 @@
-README
+phpOLAPi - A PHP API for XMLA to connect to OLAP databases
 ======
 
 
-phpOlap is a php API for OLAP (XMLA)
+phpOLAPi is a successor of [phpOLAP](https://github.com/julienj/phpOlap) by Julien Jacottet, which is unfortunately not maintained anymore. 
 
-phpOlap can be used to explore schema (cubes, dimensions, hierarchies, levels, ...) and execute MDX Query, generate layout, ...
+phpOLAPi can be used to explore database schemas (cubes, dimensions, hierarchies, levels, ...), execute MDX Queries and render the results in various forms: as a PHP array, a CSV text or an HTML table.
 
-phpOlap is only supported on PHP 5.3.2 and up.
+phpOLAPi runs on PHP 5.3.2 and up.
 
-
-API : http://phpolap.org/
 
 Database exploration
 ----------------
@@ -17,8 +15,8 @@ Database exploration
 ``` php
 <?php
 require_once '../autoload.php';
-use phpOlap\Xmla\Connection\Connection;
-use phpOlap\Xmla\Connection\Adaptator\SoapAdaptator;
+use phpOLAPi\Xmla\Connection\Connection;
+use phpOLAPi\Xmla\Connection\Adaptator\SoapAdaptator;
 
 // for Mondrian
 $connection = new Connection(
@@ -88,7 +86,7 @@ Query
 
 require_once '../autoload.php';
 
-use phpOlap\Mdx\Query;
+use phpOLAPi\Mdx\Query;
 
 $query = new Query("[Sales]");
 $query->addElement("[Measures].[Unit Sales]", "COL");
@@ -104,16 +102,16 @@ $query->addElement("[Time].[1997]", "FILTER");
 echo $query->toMdx();
 ```
 
-Layout
+Render
 ------
 ``` php
 <?php
 require_once '../autoload.php';
 
-use phpOlap\Xmla\Connection\Connection;
-use phpOlap\Xmla\Connection\Adaptator\SoapAdaptator;
-use phpOlap\Layout\Table\HtmlTableLayout;
-use phpOlap\Layout\Table\CsvTableLayout;
+use phpOLAPi\Xmla\Connection\Connection;
+use phpOLAPi\Xmla\Connection\Adaptator\SoapAdaptator;
+use phpOLAPi\Layout\Table\HtmlTableLayout;
+use phpOLAPi\Layout\Table\CsvTableLayout;
 
 $connection = ...
 

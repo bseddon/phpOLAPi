@@ -9,10 +9,10 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Tests\Xmla\Connection\Adaptator;
+namespace phpOLAPi\Tests\Xmla\Connection\Adaptator;
 
-use phpOlap\Xmla\Connection\Adaptator\SoapAdaptator;
-use phpOlap\Xmla\Connection\Adaptator\AdaptatorException;
+use phpOLAPi\Xmla\Connection\Adaptator\SoapAdaptator;
+use phpOLAPi\Xmla\Connection\Adaptator\AdaptatorException;
 
 class SoapAdaptatorTest extends \PHPUnit_Framework_TestCase
 {
@@ -323,7 +323,7 @@ class SoapAdaptatorTest extends \PHPUnit_Framework_TestCase
 	protected function getSoapAdaptatorMockCall()
 	{
         $stub = $this->getMock(
-				'phpOlap\Xmla\Connection\Adaptator\SoapAdaptator',
+				'phpOLAPi\Xmla\Connection\Adaptator\SoapAdaptator',
 				array('call'),
 				array('http://localhost:8080/mondrian/xmla.jsp')
 				); 
@@ -337,7 +337,7 @@ class SoapAdaptatorTest extends \PHPUnit_Framework_TestCase
 	{
 
       	$stub = $this->getMock(
-				'phpOlap\Xmla\Connection\Adaptator\SoapAdaptator',
+				'phpOLAPi\Xmla\Connection\Adaptator\SoapAdaptator',
 				array('__doRequest'),
 				array('http://localhost:8080/mondrian/xmla.jsp', 'login' ,'pass')
 				); 

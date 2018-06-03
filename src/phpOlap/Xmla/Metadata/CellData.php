@@ -9,10 +9,10 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Xmla\Metadata;
+namespace phpOLAPi\Xmla\Metadata;
 
-use phpOlap\Metadata\CellDataInterface;
-use phpOlap\Xmla\Metadata\MetadataBase;
+use phpOLAPi\Metadata\CellDataInterface;
+use phpOLAPi\Xmla\Metadata\MetadataBase;
 
 /**
 *	CellData

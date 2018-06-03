@@ -9,12 +9,12 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Tests\Layout\Table;
+namespace phpOLAPi\Tests\Renderer\Table;
 
-use phpOlap\Xmla\Metadata\ResultSet;
-use phpOlap\Layout\Table\HtmlTableLayout;
+use phpOLAPi\Xmla\Metadata\ResultSet;
+use phpOLAPi\Renderer\Table\HtmlTableRenderer;
 
-class HtmlTableLayoutTest extends \PHPUnit_Framework_TestCase
+class HtmlTableRendererTest extends \PHPUnit_Framework_TestCase
 {
     public function test1Col1Row()
     {
@@ -89,7 +89,7 @@ class HtmlTableLayoutTest extends \PHPUnit_Framework_TestCase
 		$node = $statementResult->getElementsByTagName('root')->item(0);
 		$resultSet = new ResultSet();
 		$resultSet->hydrate($node);
-		return new HtmlTableLayout($resultSet);
+		return new HtmlTableRenderer($resultSet);
     }
 
 }

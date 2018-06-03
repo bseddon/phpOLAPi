@@ -9,9 +9,9 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Tests\Xmla\Metadata;
+namespace phpOLAPi\Tests\Xmla\Metadata;
 
-use phpOlap\Xmla\Metadata\CellData;
+use phpOLAPi\Xmla\Metadata\CellData;
 
 class CellDataTest extends \PHPUnit_Framework_TestCase
 {

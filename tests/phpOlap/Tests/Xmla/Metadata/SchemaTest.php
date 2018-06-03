@@ -9,9 +9,9 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Tests\Xmla\Metadata;
+namespace phpOLAPi\Tests\Xmla\Metadata;
 
-use phpOlap\Xmla\Metadata\Schema;
+use phpOLAPi\Xmla\Metadata\Schema;
 
 class SchemaTest extends \PHPUnit_Framework_TestCase
 {
@@ -31,7 +31,7 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
 		
 		$node = $document->getElementsByTagName('row')->item(0);
 		
-		$connection = $this->getMock('phpOlap\Xmla\Connection\Connection', array(), array(), '', FALSE);
+		$connection = $this->getMock('phpOLAPi\Xmla\Connection\Connection', array(), array(), '', FALSE);
 		$connection->expects($this->any())
 					->method('findCubes')
 					->will($this->onConsecutiveCalls('cube1', 'cube2'));		

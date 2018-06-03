@@ -9,9 +9,9 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Tests\Xmla\Metadata;
+namespace phpOLAPi\Tests\Xmla\Metadata;
 
-use phpOlap\Xmla\Metadata\Member;
+use phpOLAPi\Xmla\Metadata\Member;
 
 class MemberTest extends \PHPUnit_Framework_TestCase
 {
@@ -44,7 +44,7 @@ class MemberTest extends \PHPUnit_Framework_TestCase
 		
 		$node = $document->getElementsByTagName('row')->item(0);
 		
-		$connection = $this->getMock('phpOlap\Xmla\Connection\Connection', array(), array(), '', FALSE);
+		$connection = $this->getMock('phpOLAPi\Xmla\Connection\Connection', array(), array(), '', FALSE);
 
 		$member = new Member();
 		
@@ -83,7 +83,7 @@ class MemberTest extends \PHPUnit_Framework_TestCase
 		
 		$node = $document->getElementsByTagName('row')->item(0);
 		
-		$connection = $this->getMock('phpOlap\Xmla\Connection\Connection', array(), array(), '', FALSE);
+		$connection = $this->getMock('phpOLAPi\Xmla\Connection\Connection', array(), array(), '', FALSE);
 
 		$member = new Member();
 		

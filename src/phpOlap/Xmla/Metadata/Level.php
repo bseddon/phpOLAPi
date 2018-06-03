@@ -9,11 +9,11 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Xmla\Metadata;
+namespace phpOLAPi\Xmla\Metadata;
 
-use phpOlap\Xmla\Connection\ConnectionInterface;
-use phpOlap\Xmla\Metadata\MetadataBase;
-use phpOlap\Metadata\LevelInterface;
+use phpOLAPi\Xmla\Connection\ConnectionInterface;
+use phpOLAPi\Xmla\Metadata\MetadataBase;
+use phpOLAPi\Metadata\LevelInterface;
 
 /**
 *	Level class

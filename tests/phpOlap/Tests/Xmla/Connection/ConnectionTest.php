@@ -9,12 +9,12 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Tests\Xmla\Connection;
+namespace phpOLAPi\Tests\Xmla\Connection;
 
-use phpOlap\Xmla\Connection\Connection;
-use phpOlap\Xmla\Metadata\Database;
-use phpOlap\Xmla\Metadata\Catalog;
-use phpOlap\Xmla\Metadata\Schema;
+use phpOLAPi\Xmla\Connection\Connection;
+use phpOLAPi\Xmla\Metadata\Database;
+use phpOLAPi\Xmla\Metadata\Catalog;
+use phpOLAPi\Xmla\Metadata\Schema;
 
 
 class ConnectionTest extends \PHPUnit_Framework_TestCase
@@ -22,7 +22,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
 	public function testAdaptator()
 	{
-		$adaptator = $this->getMock('phpOlap\Xmla\Connection\Adaptator\SoapAdaptator', array(), array(), '', FALSE);
+		$adaptator = $this->getMock('phpOLAPi\Xmla\Connection\Adaptator\SoapAdaptator', array(), array(), '', FALSE);
 		$connection = new Connection($adaptator);
 		$this->assertEquals($adaptator, $connection->getSoapAdaptator());
 	}	
@@ -296,7 +296,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 		$node = $document->getElementsByTagName('row');
    		
 		$adaptator = $this->getMock(
-				'phpOlap\Xmla\Connection\Adaptator\SoapAdaptator',
+				'phpOLAPi\Xmla\Connection\Adaptator\SoapAdaptator',
 				array('call'),
 				array('http://localhost:8080/mondrian/xmla.jsp')
 				); 
@@ -312,7 +312,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 		$node = $document->getElementsByTagName('root')->item(0);
    		
 		$adaptator = $this->getMock(
-				'phpOlap\Xmla\Connection\Adaptator\SoapAdaptator',
+				'phpOLAPi\Xmla\Connection\Adaptator\SoapAdaptator',
 				array('call'),
 				array('http://localhost:8080/mondrian/xmla.jsp')
 				); 

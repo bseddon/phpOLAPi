@@ -9,9 +9,9 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Mdx;
+namespace phpOLAPi\Mdx;
 
-use phpOlap\Mdx\QueryException;
+use phpOLAPi\Mdx\QueryException;
 
 /**
 *	Create simple mdx query

@@ -9,9 +9,9 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Metadata;
+namespace phpOLAPi\Metadata;
 
-use phpOlap\Xmla\Connection\ConnectionInterface;
+use phpOLAPi\Xmla\Connection\ConnectionInterface;
 
 /**
 *	Schema interface

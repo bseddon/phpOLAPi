@@ -9,10 +9,10 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Tests\Mdx;
+namespace phpOLAPi\Tests\Mdx;
 
-use phpOlap\Mdx\Query;
-use phpOlap\Mdx\QueryException;
+use phpOLAPi\Mdx\Query;
+use phpOLAPi\Mdx\QueryException;
 
 class QueryTest extends \PHPUnit_Framework_TestCase
 {

@@ -9,21 +9,20 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Layout\Table;
+namespace phpOLAPi\Renderer\Table;
 
-use phpOlap\Layout\Table\TableLayoutAbstract;
-use phpOlap\Metadata\ResultSetInterface;
-use phpOlap\Metadata\CellAxisInterface;
-use phpOlap\Metadata\CellDataInterface;
+use phpOLAPi\Metadata\ResultSetInterface;
+use phpOLAPi\Metadata\CellAxisInterface;
+use phpOLAPi\Metadata\CellDataInterface;
 
 /**
 *	Generate a csv table from ResultSetInterface object
 *
 *  	@author Julien Jacottet <jjacottet@gmail.com>
-*	@package Layout
+*	@package Renderer
 *	@subpackage Table
 */
-class CsvTableLayout extends TableLayoutAbstract
+class CsvTableRenderer extends AbstractTableRenderer
 {
 	
     /**

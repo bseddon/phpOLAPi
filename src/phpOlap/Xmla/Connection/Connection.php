@@ -8,16 +8,16 @@
 * For the full copyright and license information, please view the LICENSE
 * file that was distributed with this source code.
 */
-namespace phpOlap\Xmla\Connection;
+namespace phpOLAPi\Xmla\Connection;
 
-use phpOlap\Xmla\Connection\ConnectionInterface;
-use phpOlap\Xmla\Connection\Adaptator\AdaptatorInterface;
-use phpOlap\Xmla\Connection\Adaptator\AdaptatorException;
+use phpOLAPi\Xmla\Connection\ConnectionInterface;
+use phpOLAPi\Xmla\Connection\Adaptator\AdaptatorInterface;
+use phpOLAPi\Xmla\Connection\Adaptator\AdaptatorException;
 
-use phpOlap\Xmla\Metadata\Database;
-use phpOlap\Xmla\Metadata\Catalog;
-use phpOlap\Xmla\Metadata\Schema;
-use phpOlap\Xmla\Metadata\ResultSet;
+use phpOLAPi\Xmla\Metadata\Database;
+use phpOLAPi\Xmla\Metadata\Catalog;
+use phpOLAPi\Xmla\Metadata\Schema;
+use phpOLAPi\Xmla\Metadata\ResultSet;
 
 /**
 *	Connection Interface
@@ -65,7 +65,7 @@ class Connection  implements ConnectionInterface
 		$propertyList = self::setDefault('Format', 'Tabular', $propertyList);
 		$result = $this->getSoapAdaptator()->discover('DISCOVER_DATASOURCES', $propertyList, $restrictionList);
 		
-		return $this->hydrate($result, 'phpOlap\Xmla\Metadata\Database');
+		return $this->hydrate($result, 'phpOLAPi\Xmla\Metadata\Database');
 	}
 
     /**
@@ -87,7 +87,7 @@ class Connection  implements ConnectionInterface
 		
 		$result = $this->getSoapAdaptator()->discover('DBSCHEMA_CATALOGS', $propertyList, $restrictionList);
 		
-		return $this->hydrate($result, 'phpOlap\Xmla\Metadata\Catalog');
+		return $this->hydrate($result, 'phpOLAPi\Xmla\Metadata\Catalog');
 	}
 
     /**
@@ -110,7 +110,7 @@ class Connection  implements ConnectionInterface
 		
 		try{
 		    $result = $this->getSoapAdaptator()->discover('DBSCHEMA_SCHEMATA', $propertyList, $restrictionList);		    
-		    return $this->hydrate($result, 'phpOlap\Xmla\Metadata\Schema');
+		    return $this->hydrate($result, 'phpOLAPi\Xmla\Metadata\Schema');
 		} catch(AdaptatorException $e){
 		    // if mssql
 		    return array();
@@ -138,7 +138,7 @@ class Connection  implements ConnectionInterface
 		
 		$result = $this->getSoapAdaptator()->discover('MDSCHEMA_CUBES', $propertyList, $restrictionList);
 		
-		return $this->hydrate($result, 'phpOlap\Xmla\Metadata\Cube');
+		return $this->hydrate($result, 'phpOLAPi\Xmla\Metadata\Cube');
 	}
 
     /**
@@ -162,7 +162,7 @@ class Connection  implements ConnectionInterface
 		
 		$result = $this->getSoapAdaptator()->discover('MDSCHEMA_DIMENSIONS', $propertyList, $restrictionList);
 		
-		return $this->hydrate($result, 'phpOlap\Xmla\Metadata\Dimension');
+		return $this->hydrate($result, 'phpOLAPi\Xmla\Metadata\Dimension');
 	}	
 
     /**
@@ -186,7 +186,7 @@ class Connection  implements ConnectionInterface
 		
 		$result = $this->getSoapAdaptator()->discover('MDSCHEMA_HIERARCHIES', $propertyList, $restrictionList);
 		
-		return $this->hydrate($result, 'phpOlap\Xmla\Metadata\Hierarchy');
+		return $this->hydrate($result, 'phpOLAPi\Xmla\Metadata\Hierarchy');
 	}
 
     /**
@@ -211,7 +211,7 @@ class Connection  implements ConnectionInterface
 		
 		$result = $this->getSoapAdaptator()->discover('MDSCHEMA_LEVELS', $propertyList, $restrictionList);
 		
-		return $this->hydrate($result, 'phpOlap\Xmla\Metadata\Level');
+		return $this->hydrate($result, 'phpOLAPi\Xmla\Metadata\Level');
 	}
 
     /**
@@ -235,7 +235,7 @@ class Connection  implements ConnectionInterface
 		
 		$result = $this->getSoapAdaptator()->discover('MDSCHEMA_MEMBERS', $propertyList, $restrictionList);
 		
-		return $this->hydrate($result, 'phpOlap\Xmla\Metadata\Member');
+		return $this->hydrate($result, 'phpOLAPi\Xmla\Metadata\Member');
 	}
 
     /**
@@ -259,7 +259,7 @@ class Connection  implements ConnectionInterface
 		
 		$result = $this->getSoapAdaptator()->discover('MDSCHEMA_MEASURES', $propertyList, $restrictionList);
 		
-		return $this->hydrate($result, 'phpOlap\Xmla\Metadata\Measure');
+		return $this->hydrate($result, 'phpOLAPi\Xmla\Metadata\Measure');
 	}
 
     /**

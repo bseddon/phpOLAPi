@@ -9,10 +9,10 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Tests\Xmla\Metadata;
+namespace phpOLAPi\Tests\Xmla\Metadata;
 
-use phpOlap\Xmla\Metadata\Database;
-use phpOlap\Xmla\Connection\Connection;
+use phpOLAPi\Xmla\Metadata\Database;
+use phpOLAPi\Xmla\Connection\Connection;
 
 class DatabaseTest extends \PHPUnit_Framework_TestCase
 {
@@ -37,7 +37,7 @@ class DatabaseTest extends \PHPUnit_Framework_TestCase
 		
 		$node = $document->getElementsByTagName('row')->item(0);
 		
-		$connection = $this->getMock('phpOlap\Xmla\Connection\Connection', array(), array(), '', FALSE);
+		$connection = $this->getMock('phpOLAPi\Xmla\Connection\Connection', array(), array(), '', FALSE);
 		$connection->expects($this->any())
 					->method('findCatalogs')
 					->will($this->onConsecutiveCalls('catalog1', 'catalog2'));		

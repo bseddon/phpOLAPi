@@ -9,9 +9,9 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Tests\Xmla\Metadata;
+namespace phpOLAPi\Tests\Xmla\Metadata;
 
-use phpOlap\Xmla\Metadata\CellAxis;
+use phpOLAPi\Xmla\Metadata\CellAxis;
 
 class CellAxisTest extends \PHPUnit_Framework_TestCase
 {

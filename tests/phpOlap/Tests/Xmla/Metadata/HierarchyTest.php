@@ -9,9 +9,9 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Tests\Xmla\Metadata;
+namespace phpOLAPi\Tests\Xmla\Metadata;
 
-use phpOlap\Xmla\Metadata\Hierarchy;
+use phpOLAPi\Xmla\Metadata\Hierarchy;
 
 class HierarchyTest extends \PHPUnit_Framework_TestCase
 {
@@ -47,7 +47,7 @@ class HierarchyTest extends \PHPUnit_Framework_TestCase
 		
 		$node = $document->getElementsByTagName('row')->item(0);
 		
-		$connection = $this->getMock('phpOlap\Xmla\Connection\Connection', array(), array(), '', FALSE);
+		$connection = $this->getMock('phpOLAPi\Xmla\Connection\Connection', array(), array(), '', FALSE);
 		$connection->expects($this->any())
 					->method('findLevels')
 					->will($this->onConsecutiveCalls('l1', 'l2'));		

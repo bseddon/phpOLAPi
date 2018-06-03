@@ -9,13 +9,13 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Xmla\Metadata;
+namespace phpOLAPi\Xmla\Metadata;
 
-use phpOlap\Xmla\Connection\ConnectionInterface;
-use phpOlap\Xmla\Metadata\MetadataBase;
-use phpOlap\Xmla\Metadata\Hierarchy;
-use phpOlap\Xmla\Metadata\Level;
-use phpOlap\Metadata\DimensionInterface;
+use phpOLAPi\Xmla\Connection\ConnectionInterface;
+use phpOLAPi\Xmla\Metadata\MetadataBase;
+use phpOLAPi\Xmla\Metadata\Hierarchy;
+use phpOLAPi\Xmla\Metadata\Level;
+use phpOLAPi\Metadata\DimensionInterface;
 
 /**
 *	Dimension class

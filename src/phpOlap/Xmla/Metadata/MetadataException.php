@@ -9,7 +9,7 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Xmla\Metadata;
+namespace phpOLAPi\Xmla\Metadata;
 use \Exception as Exception;
 /**
 *  	@author Julien Jacottet <jjacottet@gmail.com>

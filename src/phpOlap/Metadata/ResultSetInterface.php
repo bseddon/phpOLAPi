@@ -9,7 +9,7 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Metadata;
+namespace phpOLAPi\Metadata;
 
 /**
 *	ResultSet interface

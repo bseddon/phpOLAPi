@@ -9,14 +9,14 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Xmla\Metadata;
+namespace phpOLAPi\Xmla\Metadata;
 
-use phpOlap\Xmla\Connection\ConnectionInterface;
-use phpOlap\Xmla\Metadata\MetadataBase;
-use phpOlap\Xmla\Metadata\CellAxis;
-use phpOlap\Xmla\Metadata\CellData;
-use phpOlap\Metadata\ResultSetInterface;
-use phpOlap\Xmla\Metadata\MetadataException;
+use phpOLAPi\Xmla\Connection\ConnectionInterface;
+use phpOLAPi\Xmla\Metadata\MetadataBase;
+use phpOLAPi\Xmla\Metadata\CellAxis;
+use phpOLAPi\Xmla\Metadata\CellData;
+use phpOLAPi\Metadata\ResultSetInterface;
+use phpOLAPi\Xmla\Metadata\MetadataException;
 
 /**
 *	ResultSet

@@ -9,7 +9,7 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Xmla\Connection\Adaptator;
+namespace phpOLAPi\Xmla\Connection\Adaptator;
 
 use \SoapClient as SoapClient;
 

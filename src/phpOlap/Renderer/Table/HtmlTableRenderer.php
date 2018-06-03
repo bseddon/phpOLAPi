@@ -9,12 +9,11 @@
 * file that was distributed with this source code.
 */
 
-namespace phpOlap\Layout\Table;
+namespace phpOLAPi\Renderer\Table;
 
-use phpOlap\Layout\Table\TableLayoutAbstract;
-use phpOlap\Metadata\ResultSetInterface;
-use phpOlap\Metadata\CellAxisInterface;
-use phpOlap\Metadata\CellDataInterface;
+use phpOLAPi\Metadata\ResultSetInterface;
+use phpOLAPi\Metadata\CellAxisInterface;
+use phpOLAPi\Metadata\CellDataInterface;
 
 /**
 *	Generate a html table from ResultSetInterface object
@@ -23,7 +22,7 @@ use phpOlap\Metadata\CellDataInterface;
 *	@package Layout
 *	@subpackage Table
 */
-class HtmlTableLayout extends TableLayoutAbstract
+class HtmlTableRenderer extends AbstractTableRenderer
 {
 	
 	public $tableClass = 'olapGrid';
