@@ -11,9 +11,6 @@ phpOLAPi runs on PHP 5.3.2 and up.
 Connect
 -----
 
-Database exploration
-----------------
-
 ``` php
 <?php
 require_once 'vendor/autoload.php';
@@ -29,19 +26,19 @@ $connection = new Connection(
             'schemaName' => 'FoodMart'
         )
 );
+
 // for Microsoft SQL Server Analysis Services
-/*
+
 $connection = new Connection(
-    new SoapAdaptator('http://192.168.1.12/olap/msmdpump.dll', 'julien', 'juju'),
+    new SoapAdaptator('http://localhost/olap/msmdpump.dll', 'username', 'password'),
     array(
         'DataSourceInfo' => null,
         'CatalogName' => 'Adventure Works DW 2008R2 SE'
         )
 );
-*/
 ```
 
-Perform an MDX query
+Run an MDX query
 -----
 
 ``` php
@@ -52,7 +49,7 @@ require_once 'vendor/autoload.php';
 use phpOLAPi\Mdx\Query;
 
 $resultSet = $connection->statement("
-	SELECT ...
+	SELECT [Measures].MEMBERS ON COLUMNS FROM [Adventure Works] 
 ");
 
 echo $resultSet;
@@ -62,8 +59,6 @@ Build and MDX query via API
 -----
 
 ``` php
-<?php
-
 require_once 'vendor/autoload.php';
 
 use phpOLAPi\Mdx\Query;
@@ -79,13 +74,17 @@ $query->addElement("[Promotion Media].[All Media].Children", "ROW");
 $query->addElement("[Product].[All Products]", "ROW");
 $query->addElement("[Time].[1997]", "FILTER");
 
-echo $query->toMdx();
+$connection = ...
+
+$resultSet = $connection->statement(
+	$query->toMdx()
+);
 ```
 
 Render the result
 ------
+
 ``` php
-<?php
 require_once 'vendor/autoload.php';
 
 use phpOLAPi\Xmla\Connection\Connection;
@@ -117,7 +116,7 @@ header("Content-type: application/vnd.ms-excel");
 header("Content-disposition: attachment; filename=\"export.csv\"");
 $csv = new CsvTableLayout($resultSet);
 print($csv->generate()); 
-exit;
+```
 
 Database exploration
 ----------------
@@ -128,25 +127,7 @@ require_once 'vendor/autoload.php';
 use phpOLAPi\Xmla\Connection\Connection;
 use phpOLAPi\Xmla\Connection\Adaptator\SoapAdaptator;
 
-// for Mondrian
-$connection = new Connection(
-    new SoapAdaptator('http://localhost:8080/mondrian/xmla'),
-    array(
-            'DataSourceInfo' => 'Provider=Mondrian;DataSource=MondrianFoodMart;'
-            'CatalogName' => 'FoodMart',
-            'schemaName' => 'FoodMart'
-        )
-);
-// for Microsoft SQL Server Analysis Services
-/*
-$connection = new Connection(
-    new SoapAdaptator('http://192.168.1.12/olap/msmdpump.dll', 'julien', 'juju'),
-    array(
-        'DataSourceInfo' => null,
-        'CatalogName' => 'Adventure Works DW 2008R2 SE'
-        )
-);
-*/
+$connection = ...
 
 $cube = $connection->findOneCube(null, array('CUBE_NAME' => 'Sales'));
 	
