@@ -42,11 +42,8 @@ Run an MDX query
 -----
 
 ``` php
-<?php
 
-require_once 'vendor/autoload.php';
-
-use phpOLAPi\Mdx\Query;
+$connection = ...
 
 $resultSet = $connection->statement("
 	SELECT [Measures].MEMBERS ON COLUMNS FROM [Adventure Works] 
@@ -59,8 +56,6 @@ Build and MDX query via API
 -----
 
 ``` php
-require_once 'vendor/autoload.php';
-
 use phpOLAPi\Mdx\Query;
 
 $query = new Query("[Sales]");
@@ -85,10 +80,6 @@ Render the result
 ------
 
 ``` php
-require_once 'vendor/autoload.php';
-
-use phpOLAPi\Xmla\Connection\Connection;
-use phpOLAPi\Xmla\Connection\Adaptator\SoapAdaptator;
 use phpOLAPi\Renderer\Table\HtmlTableRenderer;
 use phpOLAPi\Renderer\Table\CsvTableRenderer;
 use phpOLAPi\Renderer\AssocArrayRenderer
@@ -123,9 +114,6 @@ Database exploration
 
 ``` php
 <?php
-require_once 'vendor/autoload.php';
-use phpOLAPi\Xmla\Connection\Connection;
-use phpOLAPi\Xmla\Connection\Adaptator\SoapAdaptator;
 
 $connection = ...
 
