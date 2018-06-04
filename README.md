@@ -5,14 +5,14 @@ phpOLAPi is a successor of [phpOLAP](https://github.com/julienj/phpOlap) by Juli
 
 phpOLAPi can be used to explore database schemas (cubes, dimensions, hierarchies, levels, ...), execute MDX Queries and render the results in various forms: as a PHP array, a CSV text or an HTML table.
 
-phpOLAPi runs on PHP 5.3.2 and up.
-
 Install
 -----
 
 ```
 composer require kabachello/phpolapi
 ```
+
+phpOLAPi runs on PHP 5.3.2 and up.
 
 Connect
 -----
@@ -172,3 +172,8 @@ $cube = $connection->findOneCube(null, array('CUBE_NAME' => 'Sales'));
 </ul>
 		
 ```
+
+License
+-------
+
+phpOLAPi is released under the MIT license.
