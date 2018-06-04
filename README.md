@@ -1,12 +1,18 @@
 phpOLAPi - A PHP API for XMLA to connect to OLAP databases
 ======
 
-
 phpOLAPi is a successor of [phpOLAP](https://github.com/julienj/phpOlap) by Julien Jacottet, which is unfortunately not maintained anymore. 
 
 phpOLAPi can be used to explore database schemas (cubes, dimensions, hierarchies, levels, ...), execute MDX Queries and render the results in various forms: as a PHP array, a CSV text or an HTML table.
 
 phpOLAPi runs on PHP 5.3.2 and up.
+
+Install
+-----
+
+```
+composer require kabachello/phpolapi
+```
 
 Connect
 -----
@@ -52,7 +58,7 @@ $resultSet = $connection->statement("
 echo $resultSet;
 ```
 
-Build and MDX query via API
+Build an MDX query via API
 -----
 
 ``` php
@@ -76,8 +82,10 @@ $resultSet = $connection->statement(
 );
 ```
 
-Render the result
+Render the ResultSet
 ------
+
+The result of a query is a ResultSet, which mimics the (very complex) structure of an XMLA response. Renderers help extract the actual data, which is burried deep in the XML. 
 
 ``` php
 use phpOLAPi\Renderer\Table\HtmlTableRenderer;
@@ -87,14 +95,23 @@ use phpOLAPi\Renderer\AssocArrayRenderer
 $connection = ...
 
 $resultSet = $connection->statement("
-	select Hierarchize(Union(Union({([Measures].[Unit Sales], [Gender].[All Gender], [Marital Status].[All Marital Status])}, Union(Union(Crossjoin({[Measures].[Store Cost]}, {([Gender].[All Gender], [Marital Status].[All Marital Status])}), Crossjoin({[Measures].[Store Cost]}, Crossjoin([Gender].[All Gender].Children, {[Marital Status].[All Marital Status]}))), Crossjoin({[Measures].[Store Cost]}, Crossjoin({[Gender].[F]}, [Marital Status].[All Marital Status].Children)))), Crossjoin({[Measures].[Store Sales]}, Union(Crossjoin({[Gender].[All Gender]}, {[Marital Status].[All Marital Status]}), Crossjoin({[Gender].[All Gender]}, [Marital Status].[All Marital Status].Children))))) ON COLUMNS,
-	  Crossjoin(Hierarchize(Crossjoin(Union({[Promotion Media].[All Media]}, [Promotion Media].[All Media].Children), Union(Union({[Product].[All Products]}, [Product].[All Products].Children), [Product].[Food].Children))), {[Store].[All Stores]}) ON ROWS
-	from [Sales]
-	where {[Time].[1997]}
+	SELECT	
+		{ 
+			[Measures].[internet Sales Amount],
+			[Measures].[Internet Order Quantity] 
+		} ON COLUMNS,
+		{
+			[Date].[Calendar].[Calendar Year].[CY 2006],
+			[Date]. [Calendar].[Calendar Year].[CY 2007] 
+		} ON ROWS
+	FROM
+	    [Adventure Works]
+	WHERE
+	    ([Customer].[Customer Geography].[Country].[Australia])
 
 ");
 
-// Associative array
+// Associative array (similar to the result of SQL queries)
 $array = (new AssocArrayRenderer($resultSet))->generate();
 var_dump($array);
 
