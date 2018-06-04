@@ -48,7 +48,6 @@ Run an MDX query
 -----
 
 ``` php
-
 $connection = ...
 
 $resultSet = $connection->statement("
