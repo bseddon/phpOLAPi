@@ -6,7 +6,7 @@ use phpOLAPi\Metadata\ResultSetInterface;
 /**
  *
  *
- * @author kabachello
+ * @author Andrej Kabachnik
  *
  */
 class AssocArrayRenderer implements RendererInterface
@@ -27,15 +27,23 @@ class AssocArrayRenderer implements RendererInterface
         $dataSet = $resultSet->getDataSet();
         
         $rowAxisCols = [];
-        foreach ($resultSet->getRowAxisSet() as $rowAxis) {
-            foreach ($rowAxis as $axis) {
-                $rowAxisCols[$axis->getLevelUniqueName()] = $axis->getLevelUniqueName();
+        $rows = $resultSet->getRowAxisSet();
+        if (is_array($rows)) {
+            foreach ($rows as $rowAxis) {
+                foreach ($rowAxis as $axis) {
+                    $rowAxisCols[$axis->getLevelUniqueName()] = $axis->getLevelUniqueName();
+                }
             }
+            
+            $keys = array_values($rowAxisCols);
         }
-        $keys = array_values($rowAxisCols);
-        foreach ($resultSet->getColAxisSet() as $colAxis) {
-            foreach ($colAxis as $axis) {
-                $keys[] = $axis->getMemberUniqueName();
+        
+        $cols = $resultSet->getColAxisSet();
+        if (is_array($cols)) {
+            foreach ($cols as $colAxis) {
+                foreach ($colAxis as $axis) {
+                    $keys[] = $axis->getMemberUniqueName();
+                }
             }
         }
         
@@ -49,7 +57,7 @@ class AssocArrayRenderer implements RendererInterface
             }
             
             // Datas
-            $rowNum = count($resultSet->getColAxisSet());
+            $rowNum = count($cols);
             $start =  $rowNum * $row;
             $stop = $start + $rowNum;
             for ($i=$start; $i < $stop; $i++) {
