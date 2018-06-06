@@ -26,10 +26,61 @@ class AssocArrayRenderer implements RendererInterface
         $rowAxisSet = $resultSet->getRowAxisSet();
         $dataSet = $resultSet->getDataSet();
         
+        // Get the keys of the table columns
+        $keys = $this->getColumnKeys($resultSet);
+        
+        // Now fill the table
+        if (! empty($rowAxisSet)) {
+            // If there are row axes defined, loop through them
+            foreach($rowAxisSet as $row => $aCol) {
+                $rowContent = [];
+                
+                // Row axis data
+                foreach ($aCol as $col => $oCol) {
+                    $rowContent[] = $rowAxisSet[$row][$col]->getMemberCaption();
+                }
+                
+                // Cell data (columns)
+                $rowNum = count($cols);
+                $start =  $rowNum * $row;
+                $stop = $start + $rowNum;
+                for ($i=$start; $i < $stop; $i++) {
+                    if (isset($dataSet[$i])) {
+                        $rowContent[] = $dataSet[$i]->getValue();
+                    } else {
+                        $rowContent[] = '';
+                    }
+                }
+                
+                // Create a table row by using the keys for keys and content for values
+                $table[$row] = array_combine($keys, $rowContent);
+            }
+        } else {
+            // If there are no row axes, just use the data to populate a single row
+            $colNrs = array_keys($resultSet->getColAxisSet());
+            foreach ($colNrs as $colNr) {
+                $data = $dataSet[$colNr];
+                $rowContent[$keys[$colNr]] = ($data === null ? null : $data->getValue());
+            }
+            $table[] = $rowContent;
+        }
+        return $table;
+    }
+    
+    /**
+     * Returns an array with column keys for the table: keys of the row axes followed by the columns axes.
+     * 
+     * @param ResultSetInterface $resultSet
+     * @return string[]
+     */
+    protected function getColumnKeys(ResultSetInterface $resultSet)
+    {
+        $keys = [];
+        
+        $rowAxisSet = $resultSet->getRowAxisSet();
         $rowAxisCols = [];
-        $rows = $resultSet->getRowAxisSet();
-        if (is_array($rows)) {
-            foreach ($rows as $rowAxis) {
+        if (is_array($rowAxisSet)) {
+            foreach ($rowAxisSet as $rowAxis) {
                 foreach ($rowAxis as $axis) {
                     $rowAxisCols[$axis->getLevelUniqueName()] = $axis->getLevelUniqueName();
                 }
@@ -47,29 +98,6 @@ class AssocArrayRenderer implements RendererInterface
             }
         }
         
-        foreach($rowAxisSet as $row => $aCol)
-        {
-            $rowContent = [];
-            
-            // Axis cells
-            foreach ($aCol as $col => $oCol) {
-                $rowContent[] = $rowAxisSet[$row][$col]->getMemberCaption();
-            }
-            
-            // Datas
-            $rowNum = count($cols);
-            $start =  $rowNum * $row;
-            $stop = $start + $rowNum;
-            for ($i=$start; $i < $stop; $i++) {
-                if (isset($dataSet[$i])) {
-                    $rowContent[] = $dataSet[$i]->getValue();
-                } else {
-                    $rowContent[] = '';
-                }
-            }
-            
-            $table[$row] = array_combine($keys, $rowContent);
-        }
-        return $table;
+        return $keys;
     }
 }
