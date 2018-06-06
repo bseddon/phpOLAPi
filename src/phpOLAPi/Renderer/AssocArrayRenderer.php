@@ -41,7 +41,7 @@ class AssocArrayRenderer implements RendererInterface
                 }
                 
                 // Cell data (columns)
-                $rowNum = count($cols);
+                $rowNum = count($resultSet->getColAxisSet());
                 $start =  $rowNum * $row;
                 $stop = $start + $rowNum;
                 for ($i=$start; $i < $stop; $i++) {
@@ -57,12 +57,18 @@ class AssocArrayRenderer implements RendererInterface
             }
         } else {
             // If there are no row axes, just use the data to populate a single row
-            $colNrs = array_keys($resultSet->getColAxisSet());
-            foreach ($colNrs as $colNr) {
-                $data = $dataSet[$colNr];
-                $rowContent[$keys[$colNr]] = ($data === null ? null : $data->getValue());
+            $colAxisSet = $resultSet->getColAxisSet();
+            if (is_array($colAxisSet)) {
+                $colNrs = array_keys($colAxisSet);
+                if (! empty($colNrs)) {
+                    $rowContent = [];
+                    foreach ($colNrs as $colNr) {
+                        $data = $dataSet[$colNr];
+                        $rowContent[$keys[$colNr]] = ($data === null ? '' : $data->getValue());
+                    }
+                    $table[] = $rowContent;
+                }
             }
-            $table[] = $rowContent;
         }
         return $table;
     }
