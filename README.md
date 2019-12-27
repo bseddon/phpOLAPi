@@ -1,4 +1,4 @@
-phpOLAPi - A PHP API for XMLA to connect to OLAP databases
+phpOLAPi - connect to OLAP databases via XML
 ======
 
 Features: 
