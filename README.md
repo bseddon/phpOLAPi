@@ -1,4 +1,4 @@
-phpOLAPi - connect to OLAP databases via XML
+phpOLAPi - connect to OLAP databases via XMLA
 ======
 
 Features: 
